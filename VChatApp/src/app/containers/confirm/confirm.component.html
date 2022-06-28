@@ -1,0 +1,26 @@
+<div class="body-auth">
+    <div class="box-auth">
+        <div>
+            <h4>Xác thực tài khoản</h4>
+        </div>
+        <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+            <div class="my-4">
+                <div class="form-group">
+                    <input type="text" formControlName="otpCode" placeholder="Mã xác thực" class="form-control">
+                    <div *ngIf="submitted && formData.get('otpCode')?.invalid" class="invalid-prms">
+                        <div *ngIf="formData.get('otpCode')?.hasError('required')">
+                            Trường yêu cầu bắt buộc.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block mb-4">Xác thực</button>
+                </div>
+            </div>
+        </form>
+        <div class="text-center">
+            <p class="mt-1"><a href="/dang-nhap">Quay lại đăng nhập</a></p>
+        </div>
+    </div>
+</div>
+<ngx-spinner></ngx-spinner>
